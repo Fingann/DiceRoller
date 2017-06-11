@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="DiceRoll.Views.DiceType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DiceRoll.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:model="clr-namespace:DiceRoll.Model"
+             d:DataContext="{d:DesignInstance model:DiceCounter }" 
+             mc:Ignorable="d" Height="21.301" Width="98.913">
+    <WrapPanel >
+        <TextBlock Text="{Binding DiceName}" VerticalAlignment="Center"></TextBlock>
+        <materialDesign:PackIcon Kind="ArrowLeft" VerticalAlignment="Center" />
+        <TextBlock Text="{Binding Count}" FontSize="15" ></TextBlock>
+        <materialDesign:PackIcon Kind="ArrowRight" VerticalAlignment="Center" />
+    </WrapPanel>
+</UserControl>

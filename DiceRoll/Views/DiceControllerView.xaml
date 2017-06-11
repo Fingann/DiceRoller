@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="DiceRoll.Views.DiceControllerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:DiceRoll.Views"
+             DataContext="{Binding Main, Source={StaticResource Locator}}"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+    <materialDesign:ColorZone Background="{StaticResource AccentColorBrush}" Foreground="WhiteSmoke">
+    <!--<UniformGrid>
+        <WrapPanel>
+            <TextBlock Text="D4"></TextBlock>
+            <materialDesign:PackIcon Kind="ArrowLeft" />
+            <TextBlock ></TextBlock>
+            <materialDesign:PackIcon Kind="ArrowRight" />
+            </WrapPanel>
+            
+    </UniformGrid>-->
+
+        <ListBox ItemsSource="{Binding DiceTypeList , UpdateSourceTrigger=PropertyChanged}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:DiceType Padding="3"></local:DiceType>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </materialDesign:ColorZone>
+</UserControl>

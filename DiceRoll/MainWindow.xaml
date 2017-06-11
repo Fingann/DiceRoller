@@ -1,0 +1,62 @@
+﻿<Controls:MetroWindow x:Class="DiceRoll.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:views="clr-namespace:DiceRoll.Views"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        mc:Ignorable="d ignore"
+        Height="343.568"
+        Width="351.677"
+        Title="MVVM Light Application"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="109*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+
+        <views:DiceCollectionView Grid.Row="1"></views:DiceCollectionView>
+        <!--<ListBox ItemsSource="{Binding Dices}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <views:DiceView Padding="3"></views:DiceView>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>-->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Roll" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding ClacluateDiceCommand}" HorizontalAlignment="Stretch" Foreground="White" Background="{StaticResource AccentColorBrush}" VerticalAlignment="Stretch"  Margin="5"  />
+            <Button Content="Clear" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding ClearDiceCommand}" Background="OrangeRed" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Margin="5" Grid.Column="1"  />
+
+        </Grid>
+
+
+    </Grid>
+</Controls:MetroWindow>
